@@ -22,11 +22,12 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="./inicio.html">Inicio</a>
-                <a class="btn btn-primary" href="./profesores.html">Profesores</a>
-                <a class="btn btn-primary" href="./cursos.html">Cursos</a>
-                <a class="btn btn-primary" href="./estudiantes.html">Estudiantes</a>
-                <a class="btn btn-primary" href="./entregables.html">Entregables</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <a class="btn btn-primary" href="{% url 'Profesores' %}">Profesores</a>
+                <a class="btn btn-primary" href="{% url 'Cursos' %}">Cursos</a>
+                <a class="btn btn-primary" href="{% url 'Estudiantes' %}">Estudiantes</a>
+                <a class="btn btn-primary" href="{% url 'Entregables' %}">Entregables</a>
+                <a class="btn btn-information" href="#NADAAUN">INICIAR</a>
             </div>
         </nav>
         <!-- Masthead-->
