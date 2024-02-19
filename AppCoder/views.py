@@ -124,7 +124,7 @@ def buscar (request):
         camada = request.GET ["camada"]
         curso = Curso.objects.filter(camada=camada) #__icontains
 
-        return render (request, "AppCoder/resultadoBusqueda.html",{"curso":curso ,"camada":camada})
+        return render (request, "AppCoder/resultadoBusqueda.html",{"cursos":curso ,"camada":camada})
 
     else:
 
