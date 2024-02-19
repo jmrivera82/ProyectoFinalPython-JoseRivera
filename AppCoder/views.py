@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from AppCoder.models import Curso, Entregable, Profesor, Estudiante
+from AppCoder.models import *
 
 from AppCoder.forms import *
 
@@ -9,22 +9,6 @@ from AppCoder.forms import *
 
 def inicio (request):
     return render (request, "AppCoder/inicio.html")
-
-
-def cursos (request):
-    return render (request, "AppCoder/cursos.html")
-
-
-def profesores (request):
-    return render (request, "AppCoder/profesores.html")
-
-
-def estudiantes (request):
-    return render (request, "AppCoder/estudiantes.html")
-
-
-def entregables (request):
-    return render (request, "AppCoder/entregables.html")
 
 
 def cursos(request):
@@ -52,7 +36,7 @@ def cursos(request):
 
 #profesor
 
-def profesorFormulario(request):
+def profesores(request):
 
     if request.method == "POST":
 
@@ -74,12 +58,12 @@ def profesorFormulario(request):
         
         miFormulario = ProfesorFormulario()
 
-    return render (request, "AppCoder/profesorFormulario.html", {"miFormulario":miFormulario })
+    return render (request, "AppCoder/profesores.html", {"miFormulario":miFormulario })
 
 
 #entregable
 
-def entregableFormulario(request):
+def entregables(request):
 
     if request.method == "POST":
 
@@ -101,12 +85,12 @@ def entregableFormulario(request):
         
         miFormulario = EntregableFormulario()
 
-    return render (request, "AppCoder/entregableFormulario.html", {"miFormulario":miFormulario })
+    return render (request, "AppCoder/entregables.html", {"miFormulario":miFormulario })
 
 
 #estudiante
 
-def estudianteFormulario(request):
+def estudiantes(request):
 
     if request.method == "POST":
 
@@ -127,7 +111,7 @@ def estudianteFormulario(request):
         
         miFormulario = EstudianteFormulario()
 
-    return render (request, "AppCoder/estudianteFormulario.html", {"miFormulario":miFormulario })
+    return render (request, "AppCoder/estudiantes.html", {"miFormulario":miFormulario })
 
 def busquedaCamada (request):
     return render(request,"AppCoder/busquedaCamada.html")
@@ -135,17 +119,17 @@ def busquedaCamada (request):
 
 def buscar (request):
 
-    if request.GET("camada"):
+    if request.GET["camada"]:
 
-        camada = request.GET ['camada']
-        cursos = Curso.objects.filter(camada__icontains=camada)
+        camada = request.GET ["camada"]
+        curso = Curso.objects.filter(camada=camada) #__icontains
 
-        return render (request, "AppCoder/resultadobusqueda.html",{"curso":cursos ,"camada":camada})
+        return render (request, "AppCoder/resultadoBusqueda.html",{"curso":curso ,"camada":camada})
 
     else:
 
-        respuesta = "No enviaste datos"
+        #respuesta = "No enviaste datos"
     
-    #return HttpResponse(respuesta)
-    return render (request, "AppCoder/inicio.html",{"respuesta" : respuesta})
+        return HttpResponse("No enviaste datos")
+        #return render (request, "AppCoder/inicio.html",{"respuesta" : respuesta})
 

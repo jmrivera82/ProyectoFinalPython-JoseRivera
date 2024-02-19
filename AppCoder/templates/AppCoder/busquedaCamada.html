@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form action ="/AppCoder/buscar/" method = "GET">
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<h1>BUSQUEDA DE CAMADA</h1>
+<p>Ingrese el numero de la camada que busca</p>
+
+    <form action ="buscar" method = "GET"> {% csrf_token %}
 
         <input type="number", name="camada", id="camada">
 
@@ -15,5 +16,5 @@
 
     </form>
 
-</body>
-</html>
+
+{% endblock %}
