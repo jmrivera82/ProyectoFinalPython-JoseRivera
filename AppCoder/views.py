@@ -48,7 +48,7 @@ def profesores(request):
 
             informacion = miFormulario.cleaned_data
 
-            profesor = Profesor (nombre = informacion ["nombre"], apelliido = informacion ['apellido'], email = informacion ['email'], profesion = informacion ['profesion'])
+            profesor = Profesor (nombre = informacion ["nombre"], apellido = informacion ['apellido'], email = informacion ['email'], profesion = informacion ['profesion'])
 
             profesor.save()
 
@@ -133,3 +133,9 @@ def buscar (request):
         return HttpResponse("No enviaste datos")
         #return render (request, "AppCoder/inicio.html",{"respuesta" : respuesta})
 
+
+
+def leerProfesores(request):
+    profesores = Profesor.objects.all()
+    contexto = {"profesores":profesores}
+    return render (request, "AppCoder/leerProfesores.html", contexto)
