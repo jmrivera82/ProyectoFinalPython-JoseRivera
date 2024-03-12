@@ -1,0 +1,30 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h1>Bandas</h1>
+<p>Lista de bandas de música ingresados</p>
+
+        {% if miFormulario.errors %}
+
+        <p style="color: red;">Están mal los datos, revisar</p>
+
+        {% endif %}
+
+
+        <form action="" method = "POST">{% csrf_token %}
+
+            <table>
+
+                {{ miFormulario.as_table }}
+
+            </table>
+
+            <input type="submit" value ="enviar">
+
+
+        </form>
+
+{% endblock %}
