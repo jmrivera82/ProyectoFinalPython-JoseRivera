@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib.auth.views import LogoutView
 
 
-from AppLogin.views import * 
+from .views import * 
 
 urlpatterns = [
     path('login',login_request, name="login"),

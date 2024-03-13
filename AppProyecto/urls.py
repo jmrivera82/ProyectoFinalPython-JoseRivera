@@ -1,15 +1,22 @@
 from django.contrib import admin
 from django.urls import path
 
-from AppProyecto import views 
+from .views import *
+
+from AppProyecto import views
+
 
 urlpatterns = [
-    path('', views.inicio, name="inicio"),
-    path('AppLogin/login.html', views.login, name="login"),
-    path('AppLogin/logout.html', views.logout, name="logout"),
-    path('Equipos', views.equipos, name="equipos"),
-    path('Camisetas', views.camisetas, name="camisetas"),
-    path('Acercademi', views.acercademi, name="acercademi"),
+    path('', inicio, name="inicio"),
+    path('../AppLogin/login.html', login, name="login"),
+    path('../AppLogin/logout.html', logout, name="logout"),
+    path('equipos', equipos, name="equipos"),
+    path('agregar_equipo', agregar_equipo, name="agregar_equipo"),
+   # path('equipos/listado', views.EquiposListado.as_view(), name='List'),
+
+
+    path('Camisetas', camisetas, name="camisetas"),
+    path('Acercademi', acercademi, name="acercademi"),
 
 
 

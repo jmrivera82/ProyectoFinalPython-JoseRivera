@@ -12,3 +12,4 @@ usuario: jose
 clave: 123456
 
 
+*** logout con problemas

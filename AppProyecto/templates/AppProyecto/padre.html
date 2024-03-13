@@ -23,13 +23,13 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
                 {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
-                <a class="btn btn-primary" href="{% url 'camisetas' %}">Camisetas</a>
+                    <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
+                    <a class="btn btn-primary" href="{% url 'camisetas' %}">Camisetas</a>
 
-                <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
+                    <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
                
-                <p>Bienvenido: {{user.username}} </p>
-                <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
+                    <p>Bienvenido: {{user.username}} </p>
+                    <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'login' %}">LOGIN</a>
                 {% endif %}

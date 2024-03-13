@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Equipos</title>
+</head>
+<body>
+
+        <h1>Estos son los equipos de fútbol más importantes</h1>
+        <ul>
+            {% for equipos in object_list %}
+
+            <li>
+                    <p>NOMBRE: {{ equipos.nombre }}</p>
+                    <p>
+
+                            <a href="{% url 'Detail' equipos.id %}">Ver</a>
+                            <a href="{% url 'Edit' equipos.id %}">Editar</a>
+                          <!--   <a href="{% url 'Delete' curso.id %}">Borrar</a> -->
+
+
+                    </p>
+
+
+
+            </li>
+
+            {% endfor %}
+        </ul>
