@@ -1,63 +1,24 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-from AppProyecto.models import *
-
-from AppProyecto.forms import *
 
 # Create your views here.
+
 
 def inicio (request):
     return render (request, "AppProyecto/inicio.html")
 
+def login (request):
+    return render (request, "../AppLogin/login.html")
 
 
-#profesor
+def equipos (request):
+    return render (request, "AppProyecto/equipos.html")
 
-def discos(request):
-
-    if request.method == "POST":
-
-        miFormulario = DiscosFormulario(request.POST)
-
-        print(miFormulario)
-
-        if miFormulario.is_valid:
-
-            informacion = miFormulario.cleaned_data
-
-            discos = Discos (nombre = informacion ["nombre"], banda = informacion ['banda'], año = informacion ['año'], genero = informacion ['genero'])
-
-            discos.save()
-
-            return render (request, "AppProyecto/inicio.html")
-    
-    else:
-        
-        miFormulario = DiscosFormulario()
-
-    return render (request, "AppProyecto/discos.html", {"miFormulario":miFormulario })
+def camisetas (request):
+    return render (request, "AppProyecto/camisetas.html")
 
 
-def bandas(request):
+def acercademi (request):
+    return render (request, "AppProyecto/Acercademi.html")
 
-    if request.method == "POST":
-        miFormulario = BandasFormulario(request.POST)
-
-        print(miFormulario)
-
-        if miFormulario.is_valid:
-
-            informacion = miFormulario.cleaned_data
-
-            bandas = Bandas (nombre = informacion ["nombre"], genero = informacion ['genero'])
-
-            bandas.save()
-
-            return render (request, "AppProyecto/inicio.html")
-    
-    else:
-        
-        miFormulario = BandasFormulario()
-
-    return render (request, "AppProyecto/bandas.html", {"miFormulario":miFormulario })
+def logout (request):
+    return render (request, "../AppLogin/logout.html")

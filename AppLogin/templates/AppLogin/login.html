@@ -1,0 +1,15 @@
+{% extends "AppProyecto/padre.html" %}
+
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+<link rel="stylesheet" type="text/css" href="{% static '/AppLogin/login.css' %}">
+
+    <h1>Login de usuarios</h1>
+
+    <form action="" method="POST">{% csrf_token %}
+        {{miFormulario.as_p}}
+        <button type="submit">Iniciar sesión</button>
+    </form>
+{% endblock contenido_que_cambia %}

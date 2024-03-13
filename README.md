@@ -1,16 +1,14 @@
-Preentrega Coderhouse num. 3
+Proyecto final 
 
-p+agina web Django - Python
+Página web realizada en Django y Python para publicar información sobre grandes equipos de fútbol y camisetas
 
 José Miguel Rivera
 
 --
 
-Contenido
+Datos de usuario para pruebas:
 
-Index en AppCoder con acceso directo a: Profesores, est7diantes, entregables  y cursos
+usuario: jose
+clave: 123456
 
-Inserciones funcionando  con formualrios
-
-falta armar búsqueda, hay errores en codigo
 

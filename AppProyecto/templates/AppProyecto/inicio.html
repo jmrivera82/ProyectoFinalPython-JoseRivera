@@ -1,10 +1,34 @@
+
 {% extends "AppProyecto/padre.html" %}
 
-{% load static %}
+{% load static %} 
 
-{% block contenidoQueCambia %}
+{% block titulo %} 
 
-        <h1>PÁGINA DE INICIO</h1>
-        <p> ejemplo de herencia</p>
+
+<h1>FUTBOLFAN</h1>
+
 
 {% endblock %}
+
+{% block contenido_que_cambia %}
+
+        <h1>Bienvenido</h1>
+
+        <p>Revisa las opciones y comenta tus equipos favoritos</p>
+
+        <h4>{{mensaje}}</h4>
+        
+    {% for fields_error in miFormulario.errors.values %}
+        
+        {% for error in fields_error %}
+            
+            <li>{{error}}</li>
+
+        {% endfor %}
+    
+    {% endfor %}
+
+    </div>
+
+{% endblock contenido_que_cambia %}

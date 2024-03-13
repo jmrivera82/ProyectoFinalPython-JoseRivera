@@ -22,3 +22,4 @@ class Bandas(models.Model):
     def __str__ (self):
 
 	    return f"Nombre: {self.nombre} - Genero { self.genero}"
+    

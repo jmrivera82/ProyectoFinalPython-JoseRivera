@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         {% load static %}
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>FutFan</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -16,52 +14,64 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'AppProyecto/css/styles.css' %}" rel="stylesheet" />
+        <link href=" {% static 'AppProyecto/css/styles.css' %} " rel="stylesheet" />
+
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
-                <a class="btn btn-primary" href="{% url 'discos' %}">Discos</a>
-                <a class="btn btn-primary" href="{% url 'bandas' %}">Bandas</a>
-     
-                <a class="btn btn-information" href="#NADAAUN">INICIAR</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
+                {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
+                <a class="btn btn-primary" href="{% url 'camisetas' %}">Camisetas</a>
+
+                <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
+               
+                <p>Bienvenido: {{user.username}} </p>
+                <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'login' %}">LOGIN</a>
+                {% endif %}
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-5">Pagina web Django</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            
-                        </div>
+       <div>
+
+       </div>
+       <div>
+        {% block titulo %} {% endblock %}
+
+       </div>
+
+       <div>
+
+        {% if not user.is_authenticated %}
+        <section class="py-7 py-md-0 bg-hero" id="home">
+            <div class="container">
+                <div class="row vh-md-100">
+                    <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
+                        <h1>Revisa y clasifica tus equipos favoritos</h1>
+                        <p>Jugadores, alineaciones, campeones, entre otros</p>
+                        <img src="/AppProyecto/static/AppProyecto/assets/img/jugador-futbol-pelota-campo-hierba.jpg" alt="todo fútbol">
+                        <a class="btn btn-primary d-inline-flex flex-row align-items-center" href="{% url 'inicio' %}">
+                            CREAR USUARIO
+                        </a>
                     </div>
                 </div>
             </div>
-        </header>
-
-        {% block contenidoQueCambia %}
-
-
-        {% endblock %}    
+        </section>
+        {% endif %}
+        
 
 
-        <!-- Icons Grid-->
 
-        <!-- Image Showcases-->
+         {% block contenido_que_cambia %}
 
-        <!-- Testimonials-->
-           </body>
+        {% endblock %}
+
+       </div>
+       
+
+
+    </body>
 </html>
