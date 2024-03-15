@@ -11,29 +11,18 @@ def inicio (request):
 def login (request):
    return render (request, "AppLogin/login.html")
 
+def registro (request):
+   return render (request, "AppLogin/registro.html")
 
-def equipos (request):
-    return render (request, "equipos.html")
+def editarUsuario (request):
+   return render (request, "AppLogin/editarUsuario.html")
 
-@login_required   
-def agregar_equipo(request):
-    if request.method == 'POST':
-        miFormulario = EquiposFormulario(request.POST)
-        if miFormulario.is_valid():
-            informacion = miFormulario.cleaned_data
-            equipo = Equipos(nombre=informacion.POST['nombre'], pais=informacion.POST['pais'], año=informacion.POST['año'], campaña=informacion.POST['campaña'])
-            equipo.save()
-            return render(request, "inicio.html", {"mensaje": "Se agrego el equipo {{nombre}} a la lista"})
-        else:
-            return render(request, "inicio.html", {"mensaje": "Formulario invalido"})
-    else:
-        miFormulario = EquiposFormulario()
-        return render(request, "agregar_equipo.html", {"miFormulario": miFormulario})
+def juegos (request):
+    return render (request, "juegos.html")
 
 
 
-def camisetas (request):
-    return render (request, "camisetas.html")
+
 
 
 def acercademi (request):

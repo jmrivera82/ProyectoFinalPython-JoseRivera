@@ -4,11 +4,11 @@
 
 {% block contenido_que_cambia %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\Jose\Desktop\Coderhouse\Python\PreEntrega3\AppLogin\static\AppLogin\logout.css' %}">
+<h1>Se ha finalizado la sesión</h1>
+<p>Vuelve pronto..</p>
 
-    <img class="center" height="400px" src="{% static 'C:\Users\Jose\Desktop\Coderhouse\Python\PreEntrega3\AppProyecto\static\AppProyecto\assets\img\3675176.jpg' %}" alt="Imagen saludo">
 
-    <h1>Adios!!</h1>
+<button type="submit"><a href="{% url 'AppProyecto/inicio' %}">Inicio</a></button>
 
 
 {% endblock contenido_que_cambia %}

@@ -23,8 +23,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
                 {% if user.is_authenticated %}
-                    <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
-                    <a class="btn btn-primary" href="{% url 'camisetas' %}">Camisetas</a>
+                    <a class="btn btn-primary" href="{% url 'juegos' %}">Juegos</a>
 
                     <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
                
@@ -32,7 +31,16 @@
                     <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'login' %}">LOGIN</a>
+                <a class="btn btn-primary" href="{% url 'registro' %}">REGISTRO</a>
+                <a class="btn btn-primary" href="{% url 'editar' %}">EDITAR USUARIO</a>
+
                 {% endif %}
+            </div>
+
+            <div>
+                <p>pruebas</p>
+                <a class="btn btn-primary" href="{% url 'login' %}">LOGIN</a>
+                <a class="btn btn-primary" href="{% url 'registro' %}">REGISTRO</a>
             </div>
         </nav>
        <div>
@@ -50,12 +58,12 @@
             <div class="container">
                 <div class="row vh-md-100">
                     <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
-                        <h1>Revisa y clasifica tus equipos favoritos</h1>
-                        <p>Jugadores, alineaciones, campeones, entre otros</p>
-                        <img src="/AppProyecto/static/AppProyecto/assets/img/jugador-futbol-pelota-campo-hierba.jpg" alt="todo fútbol">
-                        <a class="btn btn-primary d-inline-flex flex-row align-items-center" href="{% url 'inicio' %}">
-                            CREAR USUARIO
-                        </a>
+                        <h1>Retro Juegos</h1>
+                        <p>Bienvenido al portal para recordar juegos antiguos</p>
+                        <p>Consolas</p>
+                        <p>Arcade</p>
+
+
                     </div>
                 </div>
             </div>
