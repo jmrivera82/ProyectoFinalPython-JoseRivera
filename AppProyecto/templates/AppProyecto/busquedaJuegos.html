@@ -1,0 +1,20 @@
+{% extends "AppProyecto/padre.html"%}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+    <p>Nombre para buscar:</p>
+
+    <form action="/AppProyecto/buscar/" method="GET">
+
+        <input type="text", name="nombre", id="nombre">
+
+        <input type="submit", value="Buscar">
+
+    </form>
+
+
+  
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "AppProyecto/padre.html"%}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+    
+    <h1>Lista de Juegos</h1>
+
+   {% if juegos %}
+
+        <ul>
+        {% for j in juegos %}
+            <li>{{j}}</li>
+            <button>
+                <a href="{% url 'eliminarJuego' j.nombre %}">Eliminar</a>
+                <a href="{% url 'editarJuegos' j.nombre %}">Actualizar</a>
+            </button>
+            <br>
+        {% endfor %}
+        </ul>
+        <p>
+            <a href="formularioJuegos">Ingresa nuevo</a>
+            
+        </p>
+
+
+    {% else %}
+
+            <p>
+                <a href="formularioJuegos">Ingresa nuevo</a>
+                
+            </p>
+
+   {% endif %}
+
+{% endblock %}

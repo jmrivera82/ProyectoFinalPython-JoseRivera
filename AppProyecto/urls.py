@@ -15,11 +15,12 @@ urlpatterns = [
     path('../AppLogin/editarUsuario.html', editarUsuario, name="registro"),
 
     path('juegos', juegos, name="juegos"),
-    #path('agregar_equipo', agregar_equipo, name="agregar_equipo"),
-   # path('equipos/listado', views.EquiposListado.as_view(), name='List'),
+    path('leerJuegos',leerJuegos,name='leerJuegos'),
+    path('formularioJuegos',formularioJuegos,name='formularioJuegos'),
+    path('eliminarJuego/<juego_nombre>/',eliminarJuego,name='eliminarJuego'),
+    path('editarJuegos/<juego_nombre>/',editarJuegos,name='editarJuegos'),
+    path('busquedaJuegos',busquedaJuegos,name='busquedaJuegos'),
 
-
-    #path('Camisetas', camisetas, name="camisetas"),
     path('Acercademi', acercademi, name="acercademi"),
 
 
