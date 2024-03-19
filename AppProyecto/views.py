@@ -58,7 +58,7 @@ def formularioJuegos(request):
 
 def editarJuegos(request,juego_nombre):
 
-    juegos = Juegos.objects.get(nombreAnimal = juego_nombre)
+    juegos = Juegos.objects.get(nombre = juego_nombre)
 
     if request.method == 'POST':
         miFormularioJuegos = juegosFormulario(request.POST)
@@ -81,15 +81,17 @@ def editarJuegos(request,juego_nombre):
         miFormularioJuegos= juegosFormulario(initial={'nombre': juegos.nombre, 'año': juegos.año , 
             'genero': juegos.genero, 'consola':juegos.consola }) 
     
-    return render(request, "AppProyecto/editarJuego.html", {"miFormularioJuegos": miFormularioJuegos, "juego_nombre":juego_nombre})
+    return render(request, "AppProyecto/editarJuegos.html", {"miFormularioJuegos": miFormularioJuegos, "juego_nombre":juego_nombre})
 
 
-def eliminarJuego(request,nombre):
-    juegos = Juegos.objects.get(nombre)
+def eliminarJuego(request,juego_nombre):
+    juegos = Juegos.objects.get(nombre=juego_nombre)
     juegos.delete()
     juegos = Juegos.objects.all()
-    #contexto ={"juegos":juegos}
-    return render(request,"AppProyecto/juegos.html",{"mensaje":"EL juego ha sido eliminado"})
+    contexto ={"juegos":juegos}
+   # return render(request,"AppProyecto/juegos.html",{"mensaje":"EL juego ha sido eliminado"})
+    return render(request,"AppProyecto/juegos.html",contexto)
+
 
 @login_required
 def busquedaJuegos(request):

@@ -17,7 +17,7 @@ from django.urls import reverse_lazy
 
 class Juegos(models.Model):
 
-    nombre = models.CharField(max_length = 40)
+    nombre = models.CharField(max_length = 40, unique=True) 
     año = models.EmailField()
     genero = models.CharField(max_length = 40)
     consola = models.CharField(max_length = 40)
