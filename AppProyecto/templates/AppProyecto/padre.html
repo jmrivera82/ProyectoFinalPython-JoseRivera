@@ -24,6 +24,7 @@
                 <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
                 {% if user.is_authenticated %}
                     <a class="btn btn-primary" href="{% url 'juegos' %}">Juegos</a>
+                    <a class="btn btn-primary" href="{% url 'consolas' %}">Consolas</a>
 
                     <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
                

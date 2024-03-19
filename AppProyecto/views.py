@@ -97,6 +97,81 @@ def eliminarJuego(request,juego_nombre):
 def busquedaJuegos(request):
     return render(request,"AppProyecto/busquedaJuegos.html")
 
+
+
+##### ----------- Consolas 
+
+def consolas (request):
+    return render (request, "AppProyecto/consolas.html")
+
+
+@login_required
+def leerConsolas(request):
+    consolas = Consolas.objects.all()
+    contexto = {"consolas":consolas}
+    return render(request,"AppProyecto/consolas.html",contexto)
+
+
+
+def formularioConsolas(request):
+    if request.method == 'POST':
+        miFormulario = consolasFormulario(request.POST)
+        print(miFormulario)
+
+        if miFormulario.is_valid:
+            
+            informacion = miFormulario.cleaned_data
+		    
+            consola = Consolas(nombre=informacion['nombre'],
+            año_lanzamiento=informacion['año_lanzamiento'],empresa=informacion['empresa'])
+		    
+            consola.save()
+
+            consolas = Consolas.objects.all()
+    
+            return render(request,"AppProyecto/consolas.html",{"consolas":consolas})
+
+    else:
+        miFormulario = consolasFormulario()
+    return render(request, "AppProyecto/formularioConsolas.html",{"miFormulario":miFormulario})
+
+
+
+def editarConsolas(request,consola_nombre):
+
+    consolas = Consolas.objects.get(nombre = consola_nombre)
+
+    if request.method == 'POST':
+        miFormularioConsolas = consolasFormulario(request.POST)
+        print(miFormularioConsolas)
+
+        if miFormularioConsolas.is_valid:
+            
+            informacion = miFormularioConsolas.cleaned_data
+		    
+            consolas.nombre=informacion['nombre']
+            consolas.año_lanzamiento=informacion['año_lanzamiento']
+            consolas.empresa=informacion['empresa']
+		    
+            consolas.save()
+            
+            return render(request, "AppProyecto/inicio.html")
+
+    else:
+        miFormularioConsolas= consolasFormulario(initial={'nombre': consolas.nombre, 'año_lanzamiento': consolas.año_lanzamiento , 
+            'empresa': consolas.empresa }) 
+    
+    return render(request, "AppProyecto/editarConsolas.html", {"miFormularioConsolas": miFormularioConsolas, "consola_nombre":consola_nombre})
+
+
+def eliminarConsola(request,consola_nombre):
+    consolas = Consolas.objects.get(nombre=consola_nombre)
+    consolas.delete()
+    consolas = Consolas.objects.all()
+    contexto ={"consolas":consolas}
+   # return render(request,"AppProyecto/juegos.html",{"mensaje":"EL juego ha sido eliminado"})
+    return render(request,"AppProyecto/consolas.html",contexto)
+
 def acercademi (request):
     return render (request, "AppProyecto/acercademi.html")
 

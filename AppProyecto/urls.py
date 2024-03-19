@@ -21,6 +21,12 @@ urlpatterns = [
     path('editarJuegos/<juego_nombre>/',editarJuegos,name='editarJuegos'),
     path('busquedaJuegos',busquedaJuegos,name='busquedaJuegos'),
 
+    path('consolas', consolas, name="consolas"),
+    path('leerConsolas',leerConsolas,name='leerConsolas'),
+    path('formularioConsolas',formularioConsolas,name='formularioConsolas'),
+    path('eliminarConsola/<consola_nombre>/',eliminarConsola,name='eliminarConsola'),
+    path('editarConsolas/<consola_nombre>/',editarConsolas,name='editarConsolas'),
+
     path('Acercademi', acercademi, name="acercademi"),
 
 

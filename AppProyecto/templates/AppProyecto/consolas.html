@@ -1,0 +1,38 @@
+{% extends "AppProyecto/padre.html"%}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+    
+    <h1>Lista de Consolas</h1>
+
+   {% if consolas %}
+
+        <ul>
+        {% for j in consolas %}
+            <li>{{j}}</li>
+            <button>
+                <a href="{% url 'eliminarConsola' j.nombre %}">Eliminar</a>
+                <a href="{% url 'editarConsolas' j.nombre %}">Actualizar</a>
+            </button>
+            <br>
+        {% endfor %}
+        </ul>
+        <p>
+            <a href="formularioConsolas">Ingresa nuevo</a>
+        </p>
+
+
+    {% else %}
+
+            <p>
+                <a href="formularioConsolas">Ingresa nuevo</a>
+            </p>
+
+            <p>
+                <a href="leerConsolas">Ver listado</a>
+            </p>
+
+   {% endif %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "AppProyecto/padre.html"%}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+  
+
+    <h1>Formulario - Agregar una consola</h1>
+    
+    {% if  miFormularioJuegos.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+       
+        <table>
+
+            {{  miFormularioConsolas.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+  
+
+{% endblock %}
+
