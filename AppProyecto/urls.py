@@ -20,6 +20,8 @@ urlpatterns = [
     path('eliminarJuego/<juego_nombre>/',eliminarJuego,name='eliminarJuego'),
     path('editarJuegos/<juego_nombre>/',editarJuegos,name='editarJuegos'),
     path('busquedaJuegos',busquedaJuegos,name='busquedaJuegos'),
+    path('buscar/',buscar,name='buscar'),
+
 
     path('consolas', consolas, name="consolas"),
     path('leerConsolas',leerConsolas,name='leerConsolas'),

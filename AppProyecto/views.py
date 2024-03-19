@@ -92,12 +92,26 @@ def eliminarJuego(request,juego_nombre):
    # return render(request,"AppProyecto/juegos.html",{"mensaje":"EL juego ha sido eliminado"})
     return render(request,"AppProyecto/juegos.html",contexto)
 
+##### ----------- Busqueda
 
 @login_required
 def busquedaJuegos(request):
     return render(request,"AppProyecto/busquedaJuegos.html")
 
 
+
+@login_required
+def buscar(request):
+        
+    if request.GET["nombre"]:
+        nombre = request.GET['nombre']
+        juegos = Juegos.objects.filter(nombre__icontains=nombre)
+        
+        return render(request, "AppProyecto/juegos.html",{"juegos":juegos})
+
+    else:
+        respuesta = "No ingresaste nada"
+    return render(request,"AppProyecto/inicio.html",{"respuesta":respuesta})
 
 ##### ----------- Consolas 
 
