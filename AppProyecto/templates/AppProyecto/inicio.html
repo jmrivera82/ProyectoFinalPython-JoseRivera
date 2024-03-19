@@ -6,21 +6,11 @@
 {% block titulo %} 
 
 
-<h1>Retro Juegos</h1>
-
-
 {% endblock %}
 
 {% block contenido_que_cambia %}
 
-        <h1>Bienvenido</h1>
 
-        <p>Esta página está diseñada para recordar juegos antiguos</p>
-        <p>Consolas</p>
-        <p>Arcade</p>
-
-        <h4>{{mensaje}}</h4>
-        
     {% for fields_error in miFormulario.errors.values %}
         
         {% for error in fields_error %}

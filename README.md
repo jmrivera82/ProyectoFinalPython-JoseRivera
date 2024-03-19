@@ -11,7 +11,6 @@ Datos de usuario para pruebas:
 usuario: jose
 clave: 123456
 
-
-*** logout con problemas
+Modulos de juegos y consolas completados
 
 *** proyecto en construcción.
